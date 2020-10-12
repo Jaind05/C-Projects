@@ -34,7 +34,67 @@ int main(){
 	  }
 	  cout << endl;
 	}
-	roundrunning = false;
+	if(xmove == true){
+	  char char_row = 'A';
+	  bool stillreading = true;
+	  while(stillreading == true){
+	    cout << "Player 1: please enter the charectar of the row that you would like to place your piece in." << endl;
+	    cin >> char_row;
+	    if(char_row == 'A'||char_row == 'B'||char_row == 'C'){
+	      cout << "Player 1: please enter the number of the column that you would like to place your piece in." << endl;
+	      int char_column = 1;
+	      cin >> char_column;
+	      if(char_column == 1|| char_column == 2|| char_column ==3){
+		int ezrow = char_row - 65;
+		int ezcolumn = char_column -1;
+		if(board[ezrow][ezcolumn] == 0){
+		  board[ezrow][ezcolumn] = 1;
+		  stillreading = false;
+		  xmove = false;
+		}else{
+		  cout << "This space is already full" << endl;
+		}
+	      }else{
+		cout << "That was not a number: 1, 2, or 3" << endl;
+	      }
+	    }else{
+	      cout << "That was not a charectar: A, B, or C" << endl;
+	    }
+
+	  }
+
+	}
+	else{
+          char char_row = 'A';
+          bool stillreading = true;
+          while(stillreading == true){
+	    cout << "Player 2: please enter the charectar of the row that you would like to place your piece in." << endl;
+            cin >> char_row;
+            if(char_row == 'A'||char_row == 'B'||char_row == 'C'){
+              cout << "Player 2: please enter the number of the column that you would like to place your piece in." << endl;
+              int char_column = 1;
+              cin >> char_column;
+              if(char_column == 1|| char_column == 2|| char_column ==3){
+                int ezrow = char_row - 65;
+                int ezcolumn = char_column -1;
+                if(board[ezrow][ezcolumn] == 0){
+                  board[ezrow][ezcolumn] = 2;
+                  stillreading = false;
+                  xmove = true;
+                }else{
+                  cout << "This space is already full" << endl;
+                }
+              }else{
+                cout << "That was not a number: 1, 2, or 3" << endl;
+              }
+            }else{
+              cout << "That was not a charectar: A, B, or C" << endl;
+            }
+
+          }
+
+
+	}
 
       }
     gamerunning = false;
