@@ -1,23 +1,29 @@
+//Dhruv Jain
+//Tic Tac Toe
+//10/11/20
+//Plays Tic Tac Toe with the user
+//
+
 #include <iostream>
 #include <cstring>
 
 using namespace std;
 
-int main(){
-  int board[3][3];
-  int xwins = 0;
-  int Owins = 0;
-  bool gamerunning = true;
-  while(gamerunning){
-    for(int row = 0; row < 3; row++){
+int main(){ //Main method
+  int board[3][3]; // Tic Tac Toe Board
+  int xwins = 0; // counts x wins
+  int Owins = 0; // counts o wins
+  bool gamerunning = true; // bool to see if the user wants to continue to play
+  while(gamerunning){ // game loop
+    for(int row = 0; row < 3; row++){ // two for loops to reset the board to blans
       for(int column = 0; column < 3; column++){
 	board[row][column] = 0;
       }
   }	
-    bool xmove = true;
-    bool roundrunning = true;
-    while (roundrunning){
-	cout << "   1  2  3" << endl;
+    bool xmove = true; //bool to track whos turn it is
+    bool roundrunning = true; // bool to track if the round ifs over or not
+    while (roundrunning){ //round loop
+      cout << "   1  2  3" << endl; // group of conditions to print current game board
 	for(int row = 0; row < 3; row++){
 	  char temp = 'A'+row;
 	  cout << temp << "  "; 
@@ -34,21 +40,22 @@ int main(){
 	  }
 	  cout << endl;
 	}
+	//What to do when it is X's move
 	if(xmove == true){
-	  char char_row = 'A';
+	  char char_row = 'A';//char to hold user input for row
 	  bool stillreading = true;
 	  while(stillreading == true){
 	    cout << "Player 1: please enter the charectar of the row that you would like to place your piece in." << endl;
 	    cin >> char_row;
-	    if(char_row == 'A'||char_row == 'B'||char_row == 'C'){
+	    if(char_row == 'A'||char_row == 'B'||char_row == 'C'){ //row input is valid
 	      cout << "Player 1: please enter the number of the column that you would like to place your piece in." << endl;
-	      int char_column = 1;
+	      int char_column = 1; // char to hold user input for column
 	      cin >> char_column;
-	      if(char_column == 1|| char_column == 2|| char_column ==3){
-		int ezrow = char_row - 65;
-		int ezcolumn = char_column -1;
-		if(board[ezrow][ezcolumn] == 0){
-		  board[ezrow][ezcolumn] = 1;
+	      if(char_column == 1|| char_column == 2|| char_column ==3){ //if row column is valid
+		int ezrow = char_row - 65; // int for row value
+		int ezcolumn = char_column -1; // int for column value
+		if(board[ezrow][ezcolumn] == 0){ // if desired spot is empty
+		  board[ezrow][ezcolumn] = 1; //make desired space an xmove 
 		  stillreading = false;
 		  xmove = false;
 		}else{
@@ -64,7 +71,7 @@ int main(){
 	  }
 
 	}
-	else{
+	else{ //same as above except for Omoves
           char char_row = 'A';
           bool stillreading = true;
           while(stillreading == true){
@@ -94,7 +101,7 @@ int main(){
           }
 
 
-        }
+        }// check all win conditions for both X and O
 	if(board [0][0] == 1 && board [0][1] == 1 && board [0][2] == 1) {
 	  cout << "Player 1 wins!"<<endl;
 	    xwins++;
@@ -140,7 +147,7 @@ int main(){
 
             xwins++;
 	  roundrunning = false;
-	}else{
+	}else{ // check to see if the board is full and a tie
 
          bool istie = true;
 
@@ -224,11 +231,11 @@ int main(){
 	 }
 	}
       }
-    cout << "Player 1 has " << xwins << " wins" <<endl;
-    cout << "Player 2 has " << Owins << " wins" <<endl; 
+    cout << "Player 1 has " << xwins << " wins" <<endl; //prints x's wins
+    cout << "Player 2 has " << Owins << " wins" <<endl; //prints o's wins
 
     bool waiting = true;
-    while(waiting){
+    while(waiting){ // while loop to check if the user wants to play again.
       cout << "Do you want to play again?(y or n)" << endl;
     char ans = ' ';
     cin >> ans;
