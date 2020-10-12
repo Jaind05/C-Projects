@@ -6,7 +6,7 @@ using namespace std;
 int main(){
   int board[3][3];
   int xwins = 0;
-  int ywins = 0;
+  int Owins = 0;
   bool gamerunning = true;
   while(gamerunning){
     for(int row = 0; row < 3; row++){
@@ -94,9 +94,138 @@ int main(){
           }
 
 
+        }
+	if(board [0][0] == 1 && board [0][1] == 1 && board [0][2] == 1) {
+	  cout << "Player 1 wins!"<<endl;
+	    xwins++;
+	  roundrunning = false;
 	}
+	else if(board [0][0] == 1 && board [1][1] == 1 && board [2][2] == 1) {
+	  cout << "Player 1 wins!"<<endl;
+	    xwins++;
+	  roundrunning = false;
+	}
+	else if(board [0][0] == 1 && board [1][0] == 1 && board [2][0] == 1) {
+          cout << "Player 1 wins!"<<endl;
 
+            xwins++;
+	  roundrunning = false;
+	}
+	else if(board [1][0] == 1 && board [1][1] == 1 && board [1][2] == 1) {
+          cout << "Player 1 wins!"<<endl;
+
+            xwins++;
+	  roundrunning = false;
+	}
+	else if(board [2][0] == 1 && board [2][1] == 1 && board [2][2] == 1) {
+          cout << "Player 1 wins!"<<endl;
+
+            xwins++;
+	  roundrunning = false;
+	}
+	else if(board [0][1] == 1 && board [1][1] == 1 && board [2][1] == 1) {
+          cout << "Player 1 wins!"<<endl;
+
+            xwins++;
+	  roundrunning = false;
+	}
+	else if(board [0][2] == 1 && board [1][2] == 1 && board [2][2] == 1) {
+          cout << "Player 1 wins!"<<endl;
+
+            xwins++;
+	  roundrunning = false;
+	}
+	else if(board [0][2] == 1 && board [1][1] == 1 && board [2][0] == 1) {
+          cout << "Player 1 wins!"<<endl;
+
+            xwins++;
+	  roundrunning = false;
+	}else{
+
+         bool istie = true;
+
+         for (int row = 0; row < 3; row++){
+           for(int column = 0; column < 3; column++){
+             if(board[row][column] == 0){
+               istie = false;
+             }
+           }
+         }
+
+         if(istie == true){
+           cout << "It's a tie!" << endl;
+             roundrunning = false;
+         }
+        }
+
+
+	 if(board [0][0] == 2 && board [0][1] == 2 && board [0][2] == 2) {
+          cout << "Player 2 wins!"<<endl;
+
+            Owins++;
+          roundrunning = false;
+        }
+        else if(board [0][0] == 2 && board [1][1] == 2 && board [2][2] == 2) {
+          cout << "Player 2 wins!"<<endl;
+
+            Owins++;
+          roundrunning = false;
+        }
+        else if(board [0][0] == 2 && board [1][0] == 2 && board [2][0] == 2) {
+          cout << "Player 2 wins!"<<endl;
+
+            Owins++;
+          roundrunning = false;
+        }
+        else if(board [1][0] == 2 && board [1][1] == 2 && board [1][2] == 2) {
+          cout << "Player 2 wins!"<<endl;
+
+            Owins++;
+          roundrunning = false;
+        }
+        else if(board [2][0] == 2 && board [2][1] == 2 && board [2][2] == 2) {
+          cout << "Player 2 wins!"<<endl;
+
+            Owins++;
+          roundrunning = false;
+        }
+        else if(board [0][1] == 2 && board [1][1] == 2 && board [2][1] == 2) {
+          cout << "Player 2 wins!"<<endl;
+
+            Owins++;
+          roundrunning = false;
+        }
+        else if(board [0][2] == 2 && board [1][2] == 2 && board [2][2] == 2) {
+          cout << "Player 2 wins!"<<endl;
+
+            Owins++;
+          roundrunning = false;
+        }
+        else if(board [0][2] == 2 && board [1][1] == 2 && board [2][0] == 2) {
+          cout << "Player 2 wins!"<<endl;
+
+            Owins++;
+          roundrunning = false;
+        }else{
+
+	 bool istie = true;
+	 
+	 for (int row = 0; row < 3; row++){
+	   for(int column = 0; column < 3; column++){
+	     if(board[row][column] == 0){
+	       istie = false;
+	     }
+	   }
+	 }
+
+	 if(istie == true){
+	   cout << "It's a tie!" << endl;
+	     roundrunning = false;
+	 }
+	}
       }
+    cout << "Player 1 has " << xwins << " wins" <<endl;
+    cout << "Player 2 has " << Owins << " wins" <<endl; 
     gamerunning = false;
 
     } 
