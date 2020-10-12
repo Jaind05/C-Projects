@@ -226,12 +226,23 @@ int main(){
       }
     cout << "Player 1 has " << xwins << " wins" <<endl;
     cout << "Player 2 has " << Owins << " wins" <<endl; 
-    gamerunning = false;
 
-    } 
-
-
-
-
+    bool waiting = true;
+    while(waiting){
+      cout << "Do you want to play again?(y or n)" << endl;
+    char ans = ' ';
+    cin >> ans;
+    if (ans == 'n'){
+      gamerunning = false;
+      waiting = false;
+    }
+    else if(ans == 'y'){
+      waiting = false;
+    }
+    else{
+      cout << "Please enter y or n"; 
+    }
+    }
   }
+}
 
